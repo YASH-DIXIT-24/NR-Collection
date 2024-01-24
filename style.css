@@ -1,0 +1,97 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center items */
+    padding: 20px; /* Add padding for better spacing */
+    border-bottom: 2px solid #ddd; /* Add a border to the bottom */
+  }
+  
+  .logo-container {
+    width: 200px; /* Slightly reduced width */
+  }
+  
+  .logo-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain; /* Maintain aspect ratio for the image */
+  }
+  
+  .nav-items {
+    display: flex;
+    margin-right: 30px;
+  }
+  
+  .nav-items > ul {
+    display: flex;
+    list-style-type: none;
+  }
+  
+  .nav-items > ul > li {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd; /* Add a border for better visibility */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .nav-items > ul > li:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+  }
+ 
+  /* Add these styles to your existing CSS or create a new stylesheet */
+.resContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.res-card {
+    margin: 4px 10px;
+    justify-content: center;
+    background-color: #f1eded;
+    height: 350px;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease; /* Add a smooth transition for box-shadow */
+  }
+  
+  .res-card:hover {
+    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Additional styling for the title */
+  .res-card h3 {
+    margin: 2px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  .res-card >img{
+    margin: 2px 0px;
+    height: 160px;
+    width: 170px;
+    border-radius: 8px;
+  }
+  .search-btn{
+     margin: 10px;
+  }
+
+  .loader-container {
+    position: relative;
+  }
+
+  .loader {
+    border: 8px solid #f3f3f3; /* Light gray */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
