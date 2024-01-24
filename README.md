@@ -25,3 +25,7 @@ LINUS TORVALDS- TALKS IS CHEAP SHOW ME THE CODE
 
 ********
 till now the data is coming from the swiggy api and i have used a loader to show until the api returns the data
+
+
+********
+for industry code we should use a concept called shimmer ui which basically shows a dummy data until the data is returned form the api
