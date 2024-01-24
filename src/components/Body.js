@@ -1,7 +1,7 @@
 import React from "react";
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
-import Loader from "./Loader";
+import Shimmer from "./Shimmer";
 
 export default Body =()=>{
     //first use of useState variable , which is a very powerfull inbuilt function inside react and a react hook
@@ -29,7 +29,7 @@ export default Body =()=>{
                 }}>High Rated Restaurants</button>
             </div>
             <div className="resContainer">
-               {(restaurantsList.length>0)?restaurantsList.map((restaurant) => (<RestaurantCard key={restaurant.info.id} resData={restaurant?.info} />)):(<Loader/>)}
+               {(restaurantsList.length>0)?restaurantsList.map((restaurant) => (<RestaurantCard key={restaurant.info.id} resData={restaurant?.info} />)):(<Shimmer/>)}
             </div>
         </div>
     )

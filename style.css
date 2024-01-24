@@ -57,6 +57,17 @@
     margin-bottom: 20px;
     transition: box-shadow 0.3s ease; /* Add a smooth transition for box-shadow */
   }
+  .shimmer-card{
+    margin: 4px 10px;
+    justify-content: center;
+    background-color: #f1eded;
+    height: 350px;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
   
   .res-card:hover {
     box-shadow: 0 6px 9px rgba(0, 0, 0, 0.2);
