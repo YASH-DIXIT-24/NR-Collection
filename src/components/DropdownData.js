@@ -8,7 +8,7 @@ export default DropdownData=({item})=>{
     console.log("this is the item");
     console.log(item);
     return(
-        <div className="border my-4">
+        <div className="border my-4 border-rounded rounded-md shadow-md">
           <button type="button" className="flex items-center justify-between w-full p-3 font-medium text-left text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
           onClick={onToggle}>
             <span>{item.card.card.title} ({item.card.card.itemCards.length})</span>
