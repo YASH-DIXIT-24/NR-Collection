@@ -8,6 +8,9 @@ module.exports = {
       colors: {
         'custom-grey': '#E5E4E2',
       },
+      fontFamily: {
+        cartoon: ['"Patrick Hand"', 'cursive'],
+      },
     },
   },
   plugins: [],

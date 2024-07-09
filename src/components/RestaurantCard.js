@@ -5,14 +5,12 @@ const RestaurantCard = ({ resData }) => {
     const { name, cloudinaryImageId, cuisines, avgRating, sla } = resData;
 
     return (
-        <div className="res-card w-[250px] h-[360px] bg-stone-50 rounded-md flex flex-col justify-between p-4 shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 m-3 relative">
-            
-
+        <div className="res-card w-[260px] h-[320px] bg-stone-150 rounded-lg flex flex-col justify-between p-3 shadow-xl transition-transform duration-300 ease-in-out hover:scale-105 m-[40px] relative z-30">
             <div className="hover:scale-110 image-container h-[180px] ease-in duration-300 mb-2">
                 <img className="rounded-lg object-cover w-full h-full" src={CLOUDINARY_ID + cloudinaryImageId} alt={`${name} image`} />
             </div>
             <div className="details flex flex-col gap-2 flex-grow">
-                <h4 className="h-10 font-bold text-lg truncate">{name}</h4>
+                <h4 className="h-8 font-bold text-lg truncate">{name}</h4>
                 <div className="cuisines h-18 text-gray-600 text-sm truncate">{cuisines.join(', ')}</div>
                 <div className="ratings-container flex items-center justify-between mt-1">
                     <div className="rating-container flex items-center">
@@ -38,9 +36,9 @@ export const WithOfferRestaurant=(RestaurantCard)=>{
     return (props)=>{
         return (
             <>
-                <div className="border-red-500 border w-[68px] bg-red-500 rounded text-center mb-1 z-10 absolute p-[2px]">
+                {/* <div className="border-red-500 border w-[68px] bg-red-500 rounded text-center mb-1 z-10 absolute p-[2px]">
                     <span className="text-white text-xs font-bold">Promoted</span>
-                </div>
+                </div> */}
                 <RestaurantCard {...props}/>
             </>
 

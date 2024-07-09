@@ -2,11 +2,15 @@ import React from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../hooks/useOnlineStatus";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 export default Header = () => {
-  let onlineStatus = useOnlineStatus();
-  console.log("onlinenstatus", onlineStatus);
+  const { userName } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
   return (
-    <div className="flex justify-between bg-custom-grey shadow-md items-center h-[140px]">
+    <>
+    <div className="fixed top-0 left-0 right-0 flex justify-between bg-[#f8f8f8] shadow-md items-center h-[95px] z-50 ">
       <div className="logo-container flex justify-between">
         <Link to="/">
           <img
@@ -14,28 +18,16 @@ export default Header = () => {
             src={LOGO_URL}
           ></img>
         </Link>
-        <h3 className="font-sans md:font-serif ml-3 flex items-center">
-          Ramu Di Veg Biryani
+        <h3 className="ml-3 flex items-center text-[#ff6347]" style={{ fontFamily: "'Patrick Hand', cursive, sans-serif" }}>
+          Rapid Food
         </h3>
       </div>
-      <div className="flex items-center p-2">
-        <label
-          strokeWidth="toggleTwo"
-          className="flex items-center cursor-pointer select-none text-dark dark:text-white"
-        >
-          <div className="relative">
-            <input type="checkbox" id="toggleTwo" className="peer sr-only" checked={onlineStatus}/>
-            <div className="block h-8 rounded-full bg-red-500 w-14 peer-checked:bg-green-500"></div>
-            <div className="absolute w-6 h-6 transition bg-white rounded-full dot left-1 top-1 peer-checked:translate-x-full"></div>
-          </div>
-        </label>
-      </div>
-
-      <ul className="flex m-5 p-3">
+    
+      <ul className="flex  p-1 my-[10px] mr-[50px]">
         <li className="m-3">
           <div className="header-icon">
             <svg
-              className="h-8 w-8 text-red-500"
+              className="h-7 w-7 text-[#333333] hover:text-[#ff6347]"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -57,7 +49,7 @@ export default Header = () => {
         <li className="m-3">
           <div className="header-icon">
             <svg
-              className="h-8 w-8 text-red-500"
+              className="h-7 w-7 text-[#333333] cursor-pointer hover:text-[#ff6347]"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -78,7 +70,7 @@ export default Header = () => {
         <li className="m-3">
           <div className="header-icon">
             <svg
-              className="h-8 w-8 text-red-500"
+              className="h-7 w-7 text-[#333333] cursor-pointer hover:text-[#ff6347]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -96,7 +88,7 @@ export default Header = () => {
         <li className="m-3">
           <div className="header-icon">
             <svg
-              className="h-8 w-8 text-red-500"
+              className="h-7 w-7 text-[#333333] hover:text-[#ff6347]"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -115,10 +107,10 @@ export default Header = () => {
           </div>
           <span className="header-text">Help</span>
         </li>
-        <li className="m-3">
+        {(userName.length <= 0) ? <li className="m-3">
           <div className="header-icon">
             <svg
-              className="h-8 w-8 text-red-500"
+              className="h-7 w-7 text-[#333333] hover:text-[#ff6347]"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -127,6 +119,7 @@ export default Header = () => {
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
+              
             >
               {" "}
               <path stroke="none" d="M0 0h24v24H0z" />{" "}
@@ -135,11 +128,21 @@ export default Header = () => {
             </svg>
           </div>
           <span className="header-text">Sign In</span>
-        </li>
-        <li className="m-3">
+        </li>:<li className="m-3">
           <div className="header-icon">
+          <svg className="h-7 w-7 text-[#333333] hover:text-[#ff6347]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          </div>
+          <span className="header-text">Hi {userName}</span>
+        </li>}
+        
+        
+        <li className="m-3 relative">
+          <Link to="/cart">
+          <div className="header-icon cursor-pointer">
             <svg
-              className="h-8 w-8 text-red-500"
+              className="h-7 w-7 text-[#333333] hover:text-[#ff6347]"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -147,14 +150,24 @@ export default Header = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              {" "}
-              <circle cx="9" cy="21" r="1" /> <circle cx="20" cy="21" r="1" />{" "}
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
             </svg>
+
+            <span className="absolute top-0 right-0 text-xs font-bold text-white bg-red-500 rounded-full px-2 h-4 w-4 overflow-hidden flex items-center justify-center">
+              {cartItems.length}
+            </span>
           </div>
+          </Link>
+          
           <span className="header-text">Cart</span>
-        </li>
+      </li>
       </ul>
     </div>
+    <div>
+    
+    </div>
+  </>
   );
 };
